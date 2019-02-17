@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Grammatical gender</title>
+        <script src="./js/vue.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/vue-audio-recorder.min.js"></script>
+
+
+    </head>
+    <body>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/milligram.css">
+
+        <script src='./js/vue-components.js'></script>
+
+        <header class="header">
+            <section class="container">
+                    <h2>Train Speaking and Writing in response to Video, News or Essay Topic</h2>
+                    <p>Based on data of 470 curated essay topics, 1000+ video items 
+                        from dw.com, and 2000+ news articles from Spiegel.de + languagetool</p>            
+            </section>
+        </header>
+
+        <section class="container">
+            <div id="app">
+                <theory-block>
+                    <p>
+                        This exercise attempts to simulate a
+                        real world scenario, where you do not have access to the grammar check. After you are done
+                        providing your answer, turn on the plugin to see if you made any grammatical mistakes.
+                    </p>
+                    <p>
+                        You are prompted to process an input item - an essay topic, video or article in German.
+                        You need to summarize and discuss the item via a response. A response can
+                        be either a text or an audio spoken by you; A type of response modality is chosen at random.
+                        Note that for audio response, you need to enable microphone; Your speech will be translated
+                        to text as you speak, and after you are done recording yourself the whitespaces and capital
+                        letters will be fixed automatically, and the text can be checked by the grammar checker.
+                    </p>
+                </theory-block>
+                
+                <p>
+                    To perform this exercise, install free German grammar checker from languagetool.org. 
+                    Before providing the answer, turn off the grammar checker. To load the next exercise item,
+                    click on the button below. You will need to click on 'Show ...' button to load
+                    the item; If you do not like the item for some reason, by clicking on the button
+                    again you can choose a different item. Provide your response, and turn on again
+                    the grammar checker to access your performance. See more in theory block.
+                </p>
+
+                <button v-on:click='next_exercise_item'>Next exercise item</button>
+                <label>Your configuration:</label>
+
+                <p>Item type: {{task_modality}}, response type: {{response_modality}}</p>
+
+                <label>Item content:</label>
+                <user-mm-task v-bind:modality='task_modality'></user-mm-task>
+                
+                <label>Provide your response below:</label>
+                <user-mm-input v-bind:modality='response_modality'></user-mm-input>
+            </div>
+        </section>
+
+        <script>
+            Vue.use(VueAudioRecorder)
+
+            new Vue({
+                el: "#app",
+                components: {VueAudioRecorder},
+                data: {
+                    task_modality: 'video',
+                    response_modality: 'audio',
+                },
+                methods: {
+                    next_exercise_item: function (){
+                        this.task_modality = rndArrSelect(['topic', 'video', 'article'])
+                        this.response_modality = rndArrSelect(['audio', 'text'])
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

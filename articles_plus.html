@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learn a language</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/milligram.css">
+
+<header class="header">
+    <section class="container">
+      <h2>Articles Der, Das, Die and beyond</h2>
+      <p>Based on data of 150k+ phrases from movie subtitles text.</p>
+    </section>
+</header>
+
+<section class="container">
+  <button onclick="toggleTheory()" id="theory_button">Show Theory</button>
+  <div id="theory" style="display: none">
+    <p>Times description<a href="https://www.quora.com/What-is-the-simplest-explanation-for-the-difference-between-nominative-accusative-dative-and-genitive-articles"> Source </a></p>
+    <p>A condensed version of table below: <a href="http://www.lsa.umich.edu/german/hmr/grammatik/basic_chart.html">Source</a></p>
+    <table width="90%" border="" align="center" cellpadding="3" cellspacing="0" bgcolor="#99FF66">
+        <tbody><tr>
+          <td>&nbsp;</td>
+          <td><b>Maskulin</b></td>
+          <td><b>Neutrum</b></td>
+          <td><b>Feminin</b></td>
+          <td><b>Plural</b></td>
+        </tr>
+        <tr>
+          <td><b>Nominativ</b>
+            <br>
+            &nbsp; <br>
+            &nbsp; <br>
+            &nbsp;  <p>&nbsp;</p></td>
+          <td>der
+            <br>
+            ein <br>
+            (==&gt;mein,dein, sein, ihr, unser, <br>
+            euer)</td>
+          <td>das
+            <br>
+            ein <br>
+            (==&gt;mein,dein, sein, ihr, unser, <br>
+            euer)</td>
+          <td>die
+            <br>
+            eine <br>
+            (==&gt;meine,deine, seine, ihre, unsere, <br>
+            eure)</td>
+          <td>die <br>
+            (keine) <br>
+            (==&gt;meine,deine, seine, ihre, unsere, <br>
+            eure)</td>
+        </tr>
+        <tr>
+          <td height="120"><b>Akkusativ</b>
+
+            <blockquote>bis <br>
+              für <br>
+              durch gegen ohne um</blockquote>
+          </td>
+          <td height="120">den
+            <br>
+            einen <br>
+            (==&gt;meinen,deinen, seinen, ihren, unseren, <br>
+            euren)</td>
+          <td height="120">das
+            <br>
+            ein <br>
+            (==&gt;mein,dein, sein, ihr, unser, <br>
+            euer)</td>
+          <td height="120">die
+            <br>
+            eine <br>
+            (==&gt;meine,deine, seine, ihre, unsere, <br>
+            eure)</td>
+          <td>die <br>
+            (keine) <br>
+            (==&gt;meine,deine, seine, ihre, unsere, <br>
+            eure)</td>
+        </tr>
+        <tr>
+          <td><b>Dativ</b>
+
+            <blockquote>aus außer bei <br>
+              mit nach seit von zu</blockquote>
+          </td>
+          <td>dem
+            <br>
+            einem <br>
+            (==&gt;meinem,deinem, seinem, ihrem, unserem, <br>
+            eurem)</td>
+          <td>dem
+            <br>
+            einem <br>
+            (==&gt;meinem,deinem, seinem, ihrem, unserem, <br>
+            eurem)</td>
+          <td>der
+            <br>
+            einer <br>
+            (==&gt;meiner,deiner, seiner, ihrer, unserer, <br>
+            eurer)</td>
+          <td><a name="dativplural"></a>den
+            + <b>n</b> <br>
+            (keinen + <b>n</b>) <br>
+            (==&gt;meinen,deinen, seinen, ihren, unseren, <br>
+            euren + <b>n</b>)</td>
+        </tr>
+        <tr>
+          <td><b>Genitiv</b>
+
+            <blockquote>(an)statt trotz während
+              wegen</blockquote>
+          </td>
+          <td>des
+            + <b>(e)s</b> <br>
+            eines + <b>(e)s</b> <br>
+            (==&gt;meines,deines, seines, ihres, unseres, <br>
+            eures + <b>(e)s</b>)</td>
+          <td>des
+            + <b>(e)s</b> <br>
+            eines + <b>(e)s</b> <br>
+            (==&gt;meines,deines, seines, ihres, unseres, <br>
+            eures + <b>(e)s</b>)</td>
+          <td>der
+            <br>
+            einer <br>
+            (==&gt;meiner,deiner, seiner, ihrer, unserer, <br>
+            eurer)</td>
+          <td>der <br>
+            (keiner) <br>
+            (==&gt;meiner,deiner, seiner, ihrer, unserer, <br>
+            eurer)</td>
+        </tr>
+      </tbody></table>
+      <p> Basis for table below: <a href="http://www.graf-gutfreund.at/daf/02grammatik/04praeposition/gr1_praepositionen.pdf">Source</a> </p>
+      <img src="./data/mixed-tense.svg"> 
+  </div>
+  <h3>Fill in missing article in real sentense</h3>
+  <div id="dataTest"></div>
+  <h3>Test accuracy on artificial scenario</h3>
+  <div id="artificialTest"></div>
+</section>
+
+<script>
+// load the data
+function toggleTheory(){
+    var x = document.getElementById("theory");
+    var button = document.getElementById("theory_button");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        button.innerHTML = "Hide Theory"
+    } else {
+        button.innerHTML = "Show Theory"
+        x.style.display = "none";
+    }
+}
+
+var test = new KnowledgeTest('dataTest', ['der', 'das', 'die', 'den', 'dem', 'den', 'des'])
+
+ArticleDDDTester('artificialTest')
+
+</script>
+
+</body>
+</html>

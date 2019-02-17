@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Grammatical gender</title>
+        <script src="./js/vue.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/milligram.css">
+
+        <script src='./js/vue-components.js'></script>
+
+        <header class="header">
+            <section class="container">
+                    <h2>Select the right word from possible options.</h2>
+                    <p>Based on data of 150k sentences scraped from video subtitles.</p>            
+            </section>
+        </header>
+
+        <section class="container">
+            <div id="app">
+                <theory-block>
+                </theory-block>
+
+                <div>
+                    Select a missing word. To start the exercise, press "Next".
+                </div>
+
+                <exercise-choose-right-word v-bind:word_choices="['der', 'die', 'das']"></exercise-choose-right-word>
+                
+            </div>
+        </section>
+
+        <script>
+            new Vue({el: "#app"})
+        </script>
+    </body>
+</html>

@@ -1,0 +1,270 @@
+<html>
+    <head>
+        <title>Grammatical gender</title>
+        <script src="./js/vue.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/milligram.css">
+
+        <script src='./js/vue-components.js'></script>
+
+        <header class="header">
+            <section class="container">
+                    <h2>Estimate grammatical gender of German noun</h2>
+                    <p>Based on data scraped from en.wiktionary.org of 7600+ German nouns.</p>            
+            </section>
+        </header>
+
+        <section class="container">
+            <div id="app">
+                <theory-block>
+                    <h4>Determine Grammatical German noun gender by it's ending</h4>
+                    <p>
+                        Below a few rules are given on how to estimate the grammatical gender
+                        of a noun given its ending. For information on how these rules were
+                        determined and quality evaluation of the rules refer 
+                        <a href="https://www.kaggle.com/iaroslavai/deriving-grammatical-gender-rule-for-german-nouns">here</a>.
+                        Every rule provides a set of endings, which help identify particular
+                        gender. A rule is represented as a table, where headers of the columns
+                        are genders, and column contents are endings which help identify this
+                        gender.
+                    </p>
+
+                    <div >
+                        <label>{{selected_rule_name}}</label>
+                        <div>The rule coveres at least {{selected_rule.rule_coverage}} of all German nouns. On the nouns where it
+                            applies, its accuracy is {{selected_rule.rule_accuracy}}%. {{selected_rule.rule_description}}</div>
+                        <table>
+                            <tr><th v-for="(endings, gender, index) in selected_rule.rule">{{gender}}</th></tr>
+                            <tr><td v-for="endings in selected_rule.rule">
+                                <i v-for="ending in endings">{{ending}} </i>
+                            </td></tr>                        
+                        </table>
+                        <div>Be careful about the following endings:</div>
+                        <ol>
+                            <li v-for="confuse in selected_rule.confusing_endings">{{confuse}}</li>
+                        </ol>
+                    </div>
+                </theory-block>
+                
+                <!-- End of theory section is here -->
+                
+                <div>
+                    For a given noun, determine its gender by the ending of the noun. As an answer,
+                    enter "die", "der" or "das" which is a definite nominative article of the noun.
+                    For details on how to determine the grammatical gender, refer to the theory section 
+                    of this exercise. To start the exercise, press "Next".
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <div>
+                            <label>Choose the rule complexity:</label>
+                            <select v-model="selected_rule_name" v-on:change="chooseRule">
+                                <option v-for="(selected_rule, rule_name) in rules">{{rule_name}}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Noun:</label>
+                            <div class="row">
+                                <div class="column column-75">
+                                    <input v-model="question">
+                                </div>
+                                <div class="column column-25">
+                                    <button v-on:click="display_word=question">Wiki >>></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Enter your answer in the field below.</label>
+                            <input v-model="answer">
+                        </div>           
+                        <div>
+                            <button v-on:click="checkAnswer('die')">Die</button>
+                            <button v-on:click="checkAnswer('der')">Der</button>
+                            <button v-on:click="checkAnswer('das')">Das</button>
+                            <button v-on:click="checkAnswer()">Check</button>
+                            <button v-bind:disabled="!selected_rule.loaded" v-on:click="selectNext()">Next</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <def-de-wiktionary v-bind:word='display_word' height='300px'></def-de-wiktionary>
+                    </div>
+                </div>
+
+
+                <div>
+                    <label>Exercise statistics:</label>
+                    <div>Result:<b> {{exercise_result}}</b></div>
+                    <div>Total answers:<b> {{total_answers}}</b></div>
+                    <div>Correct answers:<b> {{correct_answers}}</b></div>
+                    <div>Accuracy:<b> {{correct_answers/total_answers}}</b></div>
+                </div>
+                
+            </div>
+        </section>
+
+        <script>
+            function selectRandomElement(arr){
+                var rand = arr[Math.floor(Math.random() * arr.length)];
+                return rand
+            }
+
+            function selectRandomKeyValue(dct){
+                var keys = []
+                for(var v in dct){
+                    keys.push(v)
+                }
+                var key = selectRandomElement(keys)
+                var value = dct[key]
+                return [key, value]
+            }
+
+            // v-for="(selected_rule, rule_name) in rules"
+            var all_rules = {
+                "17 endings rule": {
+                    rule_description: "Use the rule below to gain some ground fast.",
+                    rule_accuracy: 80,
+                    rule_coverage: 4796,
+                    rule: {
+                        die: ['e', 'it', 'ng', 'nz', 'on', 'ft', 'rin'],
+                        der: ['nn', 'r', 'll', 'ag', 'f', 'tz', 'ang'],
+                        das: ['en', 'aus', 'rn']
+                    },
+                    confusing_endings: [
+                        'ng(die) can be confused with ang(der)'
+                    ]
+                },
+                "38 endings rule": {
+                    rule_description: "Use the rule when you get to more advanced level of German, or you find it easy to memorize the endings.",
+                    rule_accuracy: 80,
+                    rule_coverage: 6142,
+                    rule: {
+                        die: ['e', 'g', 'it', 'ei', 'ät', 'nz', 'on', 'ik', 'ft', 'ur', 'rin'],
+                        der: ['ch', 'nn', 'r', 'st', 'ss', 'll', 'nd', 'ag', 'f', 'tz', 'ing', 'ug',
+                                'el', 'b', 'rm', 'an', 'ang', 'kt'],
+                        das: ['en', 'aus', 'ld', 'o', 'ent', 'rn', 'nis', 'il', 'um']
+                    },
+                    confusing_endings: [
+                        'g(f) can be confused with ag(m), ing(m), ug(m), ang(m)',
+                        'r(m) can be confused with ur(f)'
+                    ]
+                },
+                "102 (60) endings rule": {
+                    rule_description: "It is estimated that only 3.8% of German nouns do not fit to this rule. So you can simply learn die and der, and by default assume das.",
+                    rule_accuracy: 80,
+                    rule_coverage: 7331,
+                    rule: {
+                        die: ['g', 'bahn', 'uer', 'ur', 'tat', 'au', 'art', 'nz', 'in', 'ra', 'i',
+                                'on', 'it', 'ht', 'ft', 'e', 'hr', 'ik', 'hrt', 'ät'],
+                        der: ['us', 'bau', 'at', 'alt', 'ag', 'l', 'ing', 'r', 'kt', 'f', 'eg', 'rg',
+                                'hs', 'b', 'ang', 'm', 'ck', 'mut', 'aden', 'ein', 'h', 'ig', 'ort',
+                                'eis', 'nt', 'nk', 'itt', 'an', 'nn', 'pen', 'ug', 'wagen', 'ss', 'nd',
+                                'st', 'ott', 'p', 'sten', 'z', 'hn'],
+                        das: ['ld', 'zeug', 'ende', 'et', 'lz', 'ad', 'o', 'al', 'eh', 'ot', 'sser',
+                                'hiff', 'um', 'eck', 'rk', 'as', 'echt', 'ent', 'ma', 'buch', 'nis',
+                                'wort', 'iel', 'ed', 'n', 'oss', 'ell', 'och', 'il', 'tt', 'os', 'aus',
+                                'ach', 'ind', 'land', 'isch', 'tier', 'es', 'id', 'immer', 'ttel',
+                                'ück']
+                    },
+                    confusing_endings: [
+                    'n(n) can be confused with aden(m), ein(m), an(m), nn(m), pen(m), wagen(m), sten(m), hn(m), bahn(f), in(f), on(f)',
+                    'tt(n) can be confused with itt(m), ott(m)',
+                    'us(m) can be confused with aus(n)',
+                    'at(m) can be confused with tat(f)',
+                    'l(m) can be confused with al(n), iel(n), ell(n), il(n), ttel(n)',
+                    'r(m) can be confused with sser(n), tier(n), immer(n), uer(f), ur(f), hr(f)',
+                    'f(m) can be confused with hiff(n)',
+                    'm(m) can be confused with um(n)',
+                    'ck(m) can be confused with eck(n), ück(n)',
+                    'h(m) can be confused with eh(n), buch(n), och(n), ach(n), isch(n)',
+                    'ort(m) can be confused with wort(n)',
+                    'nt(m) can be confused with ent(n)',
+                    'ug(m) can be confused with zeug(n)',
+                    'ss(m) can be confused with oss(n)',
+                    'nd(m) can be confused with ind(n), land(n)',
+                    'z(m) can be confused with lz(n), nz(f)',
+                    'hn(m) can be confused with bahn(f)',
+                    'g(f) can be confused with zeug(n), ag(m), ing(m), eg(m), rg(m), ang(m), ig(m), ug(m)',
+                    'au(f) can be confused with bau(m)',
+                    'in(f) can be confused with ein(m)',
+                    'ht(f) can be confused with echt(n)',
+                    'e(f) can be confused with ende(n)'
+                    ]
+                },
+                
+            }
+
+            for(var rule in all_rules){
+                all_rules[rule]['loaded'] = false
+            }
+            
+            var default_rule = '17 endings rule'
+            var answer_map = {'f': 'die', 'm': 'der', 'n': 'das'}
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    rules: all_rules,
+                    selected_rule_name: default_rule,
+                    selected_rule: all_rules[default_rule],
+                    question: '',
+                    answer: '',
+                    answer_truth:'',
+                    selected_ending: '',
+                    exercise_result:'',
+                    total_answers:0,
+                    display_word: 'Hallo',
+                    correct_answers: 0
+                },
+                methods: {
+                    toggleTheory: function(){this.theory = !this.theory},
+                    chooseRule: function(){this.selected_rule = this.rules[this.selected_rule_name]},
+                    selectNext: function(){
+                        // selects the next noun to test user for.
+                        // select the gender
+                        var [gender, endings] = selectRandomKeyValue(this.selected_rule.rule)
+
+                        // random ending
+                        var ending = selectRandomElement(endings)
+                        this.selected_ending = ending
+
+                        // random noun with ending
+                        var noun = selectRandomElement(this.selected_rule.nouns[ending])
+
+                        this.answer_truth = answer_map[noun['gender']]
+                        this.question = noun['noun']
+                    },
+                    checkAnswer: function(answer){
+                        this.answer = answer || this.answer
+
+                        var result = "task: " + this.question + ", answer: " + this.answer_truth + ", ending: " + this.selected_ending
+                        if(this.answer === this.answer_truth){
+                            this.correct_answers += 1
+                            result += ", Correct!"
+                        }
+                        this.total_answers += 1
+                        this.exercise_result = result
+
+                        this.selectNext()
+                    }
+                }
+            })
+
+            // load all the data for the rules, identified by the [number of the rules].json
+            for(var rule in all_rules){
+                var closure_result = function(closure_var){
+                    var url = './data/' + closure_var.split(" ")[0] + '.json'
+                    $.getJSON(url, function (json) {
+                        app.rules[closure_var]['nouns'] = json
+                        app.rules[closure_var]['loaded'] = true
+                    });
+                }(rule)
+            }
+
+        </script>
+    </body>
+</html>
