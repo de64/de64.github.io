@@ -505,7 +505,7 @@ Vue.component("word-rehearsal", {
             // calculate all the words that need recalling
             var left_words = this.words_to_recal()
             if(left_words.length > 0){
-                this.selected_word = rndArrSelect()
+                this.selected_word = rndArrSelect(left_words)
                 this.word = this.selected_word.word
             }else{
                 this.word = 'Nothing to recall, you are done :)'
