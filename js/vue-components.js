@@ -437,3 +437,148 @@ Vue.component('user-mm-task', {
 <exercise-topic    v-if="modality==='topic'"></exercise-topic>
 </div>`
 })
+
+
+// https://medium.com/@bobthomas295/vuejs-and-plotly-js-reactive-charts-da9b3b59f2dc
+Vue.component("plotly-chart", {
+    props: ["chart"],
+    template: '<div :ref="chart.uuid"></div>',
+    mounted() {
+      Plotly.plot(this.$refs[this.chart.uuid], this.chart.traces, this.chart.layout);
+    },
+    watch: {
+      chart: {
+        handler: function() {
+          Plotly.react(
+            this.$refs[this.chart.uuid],
+            this.chart.traces,
+            this.chart.layout
+          );
+        },
+        deep: true
+      }
+    }
+});
+
+
+Vue.component("word-rehearsal", {
+    data: function(){
+        return {
+            word: '',
+            selected_word: 0,
+            display_word: '',
+            words: [],
+            repeat_words: -1,
+            all_words_text: ''
+        }
+    },
+    mounted() {
+        if (localStorage.words) {
+            this.words = JSON.parse(localStorage.words)
+        }
+    },
+    watch: {
+        words:{
+            handler() {
+                this.update_stats()
+                localStorage.setItem('words', JSON.stringify(this.words));
+            },
+            deep: true,
+        }
+    },
+    methods: {
+        words_to_recal: function(){
+            var now = new Date().getTime()
+            var result = []
+            for(var word of this.words){
+                var due = word.last + word.interval
+                if(due <= now){
+                    result.push(word)
+                }
+            }
+            return result
+        },
+        update_stats: function(){
+            this.repeat_words = this.words_to_recal().length
+        },
+        next_word: function(){
+            // calculate all the words that need recalling
+            var left_words = this.words_to_recal()
+            if(left_words.length > 0){
+                this.selected_word = rndArrSelect()
+                this.word = this.selected_word.word
+            }else{
+                this.word = 'Nothing to recall, you are done :)'
+            }
+        },
+        set_recall: function(remebered){
+            if(remebered){
+                var interval = this.selected_word.interval
+                if(interval == 0.0){
+                    // min. interval: 12 hours
+                    interval = 6*60*60*1000
+                }
+                interval *= 2.0
+                this.selected_word.interval = interval
+            }
+            this.next_word()
+        },
+        add_word: function(){
+            tiem = new Date().getTime()
+            var wow = {
+                'word': this.word,
+                'interval': 0.0,
+                'last': tiem,
+                'added': tiem
+            }
+            console.log(wow)
+            this.words.push(wow)
+        },
+        dump_words: function(){
+            this.all_words_text = JSON.stringify(this.words)
+        },
+        parse_back: function(){
+            this.words = JSON.parse(this.all_words_text)
+        }
+    },
+    template: `
+<div>
+<div class="row">
+    <div class="column">
+        <div>
+            <label>Active word:</label>
+            <div class="row">
+                <div class="column column-75">
+                    <input v-model="word">
+                </div>
+                <div class="column column-25">
+                    <button v-on:click="display_word=word">Wiki >>></button>
+                </div>
+            </div>
+        </div>
+        <div>
+        <button v-on:click="set_recall(true)">Recalled</button>
+        <button v-on:click="set_recall(false)">Forgot</button>
+        <button v-on:click="next_word()">Next</button>
+        <button v-on:click="add_word()">Add</button>
+        </div>
+        <div>
+        <label>Statistics</label>
+        <b>Words to repeat: {{repeat_words}}</b>
+        </div>
+    </div>
+    <div class="column">
+        <def-de-wiktionary v-bind:word='display_word' height='300px'></def-de-wiktionary>
+    </div>
+</div>
+<div class="row">
+
+</div>
+    <button v-on:click="dump_words()">Show all words</button>
+    <button v-on:click="parse_back()">Save changes</button>
+    <textarea v-model='all_words_text'
+        placeholder="Here you will see all the words that you have. You can make changes, and save them with button above.">
+    </textarea>
+</div>
+`
+})

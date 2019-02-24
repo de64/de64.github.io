@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Know German Words</title>
+        <script src="./js/vue.js"></script>
+        <script src="./js/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/milligram.css">
+
+        <script src='./js/vue-components.js'></script>
+        <script src='./js/plotly-latest.min.js'></script>
+        
+        <header class="header">
+            <section class="container">
+              <h2>Repeat words at optimal time.</h2>
+              <p>
+                  Based on what 
+                  <a href="https://en.wikipedia.org/wiki/Spaced_repetition">spaced repetition</a>
+                  technique.
+                </p>
+            </section>
+        </header>
+
+        <section class="container">
+            <div id="app">
+                <theory-block>
+                    <p>
+                        Currently the aim for the system is to be used in the morning and in the
+                        evening. If you recall correctly the word, its frequency is increased
+                        twice; Minimal frequency is 12 hours.
+                    </p>
+                </theory-block>
+                <p>
+                    As you encounter words which are not familiar, add them in the field below,
+                    and save them using "Add" button. Click on "Next" button to load a next word to 
+                    recall. Provide feedback on whether you remembered the meaning of the word or not
+                    using "Recalled" or "Forgot" buttons. The frequency of word appearance is adjusted
+                    accordingly.
+                </p>
+                <word-rehearsal></word-rehearsal>
+
+            </div>
+        </section>
+
+        <script>
+            new Vue({
+                el: "#app",
+            })
+            
+        </script>
+
+    </body>
+</html>
