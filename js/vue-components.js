@@ -520,6 +520,7 @@ Vue.component("word-rehearsal", {
                 }
                 interval *= 2.0
                 this.selected_word.interval = interval
+                this.selected_word.last = new Date().getTime()
             }
             this.next_word()
         },
@@ -563,8 +564,8 @@ Vue.component("word-rehearsal", {
         <button v-on:click="add_word()">Add</button>
         </div>
         <div>
-        <label>Statistics</label>
-        <b>Words to repeat: {{repeat_words}}</b>
+        <label>Words to repeat: {{repeat_words}}</label>
+        <label>Words stored: {{words.length}}</label>
         </div>
     </div>
     <div class="column">
