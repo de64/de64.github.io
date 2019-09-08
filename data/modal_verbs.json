@@ -1,0 +1,974 @@
+[
+  [
+    "present",
+    "ich",
+    "m\u00fcssen",
+    "muss"
+  ],
+  [
+    "present",
+    "ich",
+    "k\u00f6nnen",
+    "kann"
+  ],
+  [
+    "present",
+    "ich",
+    "d\u00fcrfen",
+    "darf"
+  ],
+  [
+    "present",
+    "ich",
+    "sollen",
+    "soll"
+  ],
+  [
+    "present",
+    "ich",
+    "wollen",
+    "will"
+  ],
+  [
+    "present",
+    "ich",
+    "m\u00f6gen",
+    "mag"
+  ],
+  [
+    "present",
+    "ich",
+    "m\u00f6chten",
+    "m\u00f6chte"
+  ],
+  [
+    "present",
+    "du",
+    "m\u00fcssen",
+    "musst"
+  ],
+  [
+    "present",
+    "du",
+    "k\u00f6nnen",
+    "kannst"
+  ],
+  [
+    "present",
+    "du",
+    "d\u00fcrfen",
+    "darfst"
+  ],
+  [
+    "present",
+    "du",
+    "sollen",
+    "sollst"
+  ],
+  [
+    "present",
+    "du",
+    "wollen",
+    "willst"
+  ],
+  [
+    "present",
+    "du",
+    "m\u00f6gen",
+    "magst"
+  ],
+  [
+    "present",
+    "du",
+    "m\u00f6chten",
+    "m\u00f6chtest"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "m\u00fcssen",
+    "muss"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "k\u00f6nnen",
+    "kann"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "d\u00fcrfen",
+    "darf"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "sollen",
+    "soll"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "wollen",
+    "will"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "m\u00f6gen",
+    "mag"
+  ],
+  [
+    "present",
+    "er/sie/es/man",
+    "m\u00f6chten",
+    "m\u00f6chte"
+  ],
+  [
+    "present",
+    "wir",
+    "m\u00fcssen",
+    "m\u00fcssen"
+  ],
+  [
+    "present",
+    "wir",
+    "k\u00f6nnen",
+    "k\u00f6nnen"
+  ],
+  [
+    "present",
+    "wir",
+    "d\u00fcrfen",
+    "d\u00fcrfen"
+  ],
+  [
+    "present",
+    "wir",
+    "sollen",
+    "sollen"
+  ],
+  [
+    "present",
+    "wir",
+    "wollen",
+    "wollen"
+  ],
+  [
+    "present",
+    "wir",
+    "m\u00f6gen",
+    "m\u00f6gen"
+  ],
+  [
+    "present",
+    "wir",
+    "m\u00f6chten",
+    "m\u00f6chten"
+  ],
+  [
+    "present",
+    "ihr",
+    "m\u00fcssen",
+    "m\u00fcsst"
+  ],
+  [
+    "present",
+    "ihr",
+    "k\u00f6nnen",
+    "k\u00f6nnt"
+  ],
+  [
+    "present",
+    "ihr",
+    "d\u00fcrfen",
+    "d\u00fcrft"
+  ],
+  [
+    "present",
+    "ihr",
+    "sollen",
+    "sollt"
+  ],
+  [
+    "present",
+    "ihr",
+    "wollen",
+    "wollt"
+  ],
+  [
+    "present",
+    "ihr",
+    "m\u00f6gen",
+    "m\u00f6gt"
+  ],
+  [
+    "present",
+    "ihr",
+    "m\u00f6chten",
+    "m\u00f6chtet"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "m\u00fcssen",
+    "m\u00fcssen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "k\u00f6nnen",
+    "k\u00f6nnen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "d\u00fcrfen",
+    "d\u00fcrfen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "sollen",
+    "sollen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "wollen",
+    "wollen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "m\u00f6gen",
+    "m\u00f6gen"
+  ],
+  [
+    "present",
+    "sie/Sie",
+    "m\u00f6chten",
+    "m\u00f6chten"
+  ],
+  [
+    "simple past",
+    "ich",
+    "m\u00fcssen",
+    "musste"
+  ],
+  [
+    "simple past",
+    "ich",
+    "k\u00f6nnen",
+    "konnte"
+  ],
+  [
+    "simple past",
+    "ich",
+    "d\u00fcrfen",
+    "durfte"
+  ],
+  [
+    "simple past",
+    "ich",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "simple past",
+    "ich",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "simple past",
+    "ich",
+    "m\u00f6gen",
+    "mochte"
+  ],
+  [
+    "simple past",
+    "ich",
+    "m\u00f6chten",
+    "wollte"
+  ],
+  [
+    "simple past",
+    "du",
+    "m\u00fcssen",
+    "musstest"
+  ],
+  [
+    "simple past",
+    "du",
+    "k\u00f6nnen",
+    "konntest"
+  ],
+  [
+    "simple past",
+    "du",
+    "d\u00fcrfen",
+    "durftest"
+  ],
+  [
+    "simple past",
+    "du",
+    "sollen",
+    "solltest"
+  ],
+  [
+    "simple past",
+    "du",
+    "wollen",
+    "wolltest"
+  ],
+  [
+    "simple past",
+    "du",
+    "m\u00f6gen",
+    "mochtest"
+  ],
+  [
+    "simple past",
+    "du",
+    "m\u00f6chten",
+    "wolltest"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "m\u00fcssen",
+    "musste"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "k\u00f6nnen",
+    "konnte"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "d\u00fcrfen",
+    "durfte"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "m\u00f6gen",
+    "mochte"
+  ],
+  [
+    "simple past",
+    "er/sie/es/man",
+    "m\u00f6chten",
+    "wollte"
+  ],
+  [
+    "simple past",
+    "wir",
+    "m\u00fcssen",
+    "mussten"
+  ],
+  [
+    "simple past",
+    "wir",
+    "k\u00f6nnen",
+    "konnten"
+  ],
+  [
+    "simple past",
+    "wir",
+    "d\u00fcrfen",
+    "durften"
+  ],
+  [
+    "simple past",
+    "wir",
+    "sollen",
+    "sollten"
+  ],
+  [
+    "simple past",
+    "wir",
+    "wollen",
+    "wollten"
+  ],
+  [
+    "simple past",
+    "wir",
+    "m\u00f6gen",
+    "mochten"
+  ],
+  [
+    "simple past",
+    "wir",
+    "m\u00f6chten",
+    "wollten"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "m\u00fcssen",
+    "musstet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "k\u00f6nnen",
+    "konntet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "d\u00fcrfen",
+    "durftet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "sollen",
+    "solltet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "wollen",
+    "wolltet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "m\u00f6gen",
+    "mochtet"
+  ],
+  [
+    "simple past",
+    "ihr",
+    "m\u00f6chten",
+    "wolltet"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "m\u00fcssen",
+    "mussten"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "k\u00f6nnen",
+    "konnten"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "d\u00fcrfen",
+    "durften"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "sollen",
+    "sollten"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "wollen",
+    "wollten"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "m\u00f6gen",
+    "mochten"
+  ],
+  [
+    "simple past",
+    "sie/Sie",
+    "m\u00f6chten",
+    "wollten"
+  ],
+  [
+    "past participle",
+    "ich",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "ich",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "ich",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "ich",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "ich",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "ich",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "ich",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "du",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "du",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "du",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "du",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "du",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "du",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "du",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "er/sie/es/man",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "wir",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "wir",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "wir",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "wir",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "wir",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "wir",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "wir",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "ihr",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "m\u00fcssen",
+    "gemusst"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "k\u00f6nnen",
+    "gekonnt"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "d\u00fcrfen",
+    "gedurft"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "sollen",
+    "gesollt"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "wollen",
+    "gewollt"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "m\u00f6gen",
+    "gemocht"
+  ],
+  [
+    "past participle",
+    "sie/Sie",
+    "m\u00f6chten",
+    "gewollt"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "ich",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "du",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "er/sie/es/man",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "wir",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "ihr",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "m\u00fcssen",
+    "m\u00fcsste"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "k\u00f6nnen",
+    "k\u00f6nnte"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "d\u00fcrfen",
+    "d\u00fcrfte"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "sollen",
+    "sollte"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "wollen",
+    "wollte"
+  ],
+  [
+    "subjunctive II",
+    "sie/Sie",
+    "m\u00f6gen",
+    "m\u00f6chte"
+  ]
+]

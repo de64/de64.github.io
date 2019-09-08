@@ -433,7 +433,7 @@ Vue.component('user-mm-task', {
     template: 
 `<div>
 <spiegel-news      v-if="modality==='article'"></spiegel-news>
-<youtube-video-dw  v-if="modality==='video'"></youtube-video-dw>
+<youtube-video-dw  v-if="modality==='vid    eo'"></youtube-video-dw>
 <exercise-topic    v-if="modality==='topic'"></exercise-topic>
 </div>`
 })
