@@ -13,7 +13,6 @@ Vue.component('grammar-exercises', {
     },
     template: 
 `<div>
-    <label>Choose the exercise type:</label>
     <button v-on:click="pickedExercise='modal'">Modal verbs</button>
     <button v-on:click="pickedExercise='derdie'">Der, Die, Das, ...</button>
 
@@ -41,7 +40,9 @@ Vue.component('modal-verbs', {
             infinite: "",
             time: "", 
             pronoun: "", 
-            msg: ""
+            msg: "",
+            checkedTimes: ['present', 'simple past', 'past participle', 'subjunctive'],
+            possibleTimes: ['present', 'simple past', 'past participle', 'subjunctive']
         };
     },
     mounted: function(){
@@ -61,13 +62,21 @@ Vue.component('modal-verbs', {
                 this.correct_done += 1;
                 this.msg = "Correct!";
             } else {
-                this.msg = "Correct answer: " + this.selected_word;
+                this.msg = "task: " + this.time + " " + this.pronoun + " " + this.infinite + ", answered: " + this.word + ", correct answer: " + this.selected_word;
             }
             this.exercise_ratio = this.correct_done / this.total_done
             this.next_exercise()
         },
         next_exercise: function(){
-            var selected_rule = rndArrSelect(this.rules)
+            var foundFeasibleRule = false
+            while(!foundFeasibleRule){
+                var selected_rule = rndArrSelect(this.rules)
+                for(var allowed of this.checkedTimes){
+                    if(selected_rule[0].includes(allowed)){
+                        foundFeasibleRule = true;
+                    }
+                }
+            }
             
             this.time = selected_rule[0]
             this.pronoun = selected_rule[1]
@@ -85,6 +94,11 @@ Vue.component('modal-verbs', {
         Loading ...
     </div>
     <div v-if="loaded===true">
+        You can select a subset of all rules to train on using checkboxes below. 
+        <br> 
+        <template v-for="timeOption in possibleTimes">
+            <input type="checkbox" :value="timeOption" :id="timeOption" v-model="checkedTimes"> {{timeOption}}
+        </template>
         <br> <b> Setting: </b> {{time}} {{pronoun}} {{infinite}}
         <div class="column column-75">
             <input v-model="word" v-on:keyup.enter="check_word">
