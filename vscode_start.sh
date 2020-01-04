@@ -20,4 +20,4 @@ if [ ! -f $CERT_PATH ]; then
 fi
 git pull
 code $PROJECT_PATH
-http-server -c-1 -S -C $CERT_PATH -K $KEY_PATH -o
+jekyll serve --ssl-cert $CERT_PATH --ssl-key $KEY_PATH

@@ -1,0 +1,23 @@
+---
+title: Some title
+---
+{% include top.html %}{% raw %}
+<script src="./js/vue-components.js"></script>
+<div id='app'>
+    <theory-block>
+        <p>
+            This exercise attempts to simulate a
+            real world scenario, where you do not have access to the grammar check. After you are done
+            providing your answer, turn on the plugin to see if you made any grammatical mistakes.
+        </p>
+        <p>
+            You are prompted to process an input item - an essay topic, video or article in German.
+            You need to summarizei and discuss the item via a response. A response can
+            be either a text or an audio spoken by you; A type of response modality is chosen at random.
+            Note that for audio response, you need to enable microphone; Your speech will be translated
+            to text as you speak, and after you are done recording yourself the whitespaces and capital
+            letters will be fixed automatically, and the text can be checked by the grammar checker.
+        </p>
+    </theory-block>
+</div>
+{% endraw %}{% include bottom.html %}
