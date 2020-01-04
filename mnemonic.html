@@ -1,0 +1,22 @@
+---
+title: Find mnemonic for a word
+---
+{% include top.html %}{% raw %}
+<script src="./js/mnemonicgen.js"></script>
+<div id='app'>
+    <header class="header">
+        <section class="container">
+                <h2>Automated mnemonic generator.</h2>
+                <p>Generate mnemonic based on dictionary of frequent English words.</p>            
+        </section>
+    </header>
+
+    <section class="container">
+        <p>
+            Enter a word that you wish to learn below, and press "Generate" button to see what mnemonic fits.
+            The mnemonic words are selected from 5000 most frequent words in subtitles to English speaking movies.
+        </p>  
+        <word-mnemonic></word-mnemonic>
+    </section>    
+</div>
+{% endraw %}{% include bottom.html %}   
