@@ -5,3 +5,4 @@ nohup.out
 large_files
 data/de_raw.json
 _site/
+data/translation_model

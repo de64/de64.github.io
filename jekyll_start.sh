@@ -5,7 +5,7 @@
 # debugging, they are generated automatically.
 
 # Settings
-export PROJECT_PATH=~/de64.github.io
+export PROJECT_PATH=$PWD
 export DUMMY_FOLDER=$PROJECT_PATH/.dummykeys
 # SSL key certificate pair
 export KEY_PATH=$DUMMY_FOLDER/key.pem
@@ -19,5 +19,4 @@ if [ ! -f $CERT_PATH ]; then
 	openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout $KEY_PATH -out $CERT_PATH
 fi
 git pull
-code $PROJECT_PATH
-jekyll serve --ssl-cert $CERT_PATH --ssl-key $KEY_PATH
+jekyll serve --ssl-cert $CERT_PATH --ssl-key $KEY_PATH --incremental
