@@ -1,16 +1,24 @@
+function select_at_random(arr){
+    var rand = arr[Math.floor(Math.random() * arr.length)];
+    return rand
+}
+
 class MnemonicFinder{
     constructor(words_list){
-        this.prefixes = {}
+        this.prefixes = {}  // format: prefix -> list of all words that match the prefix
         for(var word of words_list){
             var prefix = ""
             for(var c of word){
                 prefix = prefix + c
-                var addword = true
+                var word_diff = 1
                 if(prefix in this.prefixes){
-                    addword = this.prefixes[prefix].length > word.length
+                    word_diff = this.prefixes[prefix][0].length - word.length
                 }
-                if(addword){
-                    this.prefixes[prefix] = word
+                if(word_diff > 0){
+                    this.prefixes[prefix] = [word]
+                }
+                if(word_diff === 0){
+                    this.prefixes[prefix].push(word)
                 }
             }
         }
@@ -46,7 +54,7 @@ class MnemonicFinder{
     _find(word, depth){
         var key = [word, depth]
         if(key in this.cache){
-            return this.cache[key]
+            return select_at_random(this.cache[key])
         }
 
         if(word.length === 0 | depth >= this.max_depth){
@@ -54,8 +62,8 @@ class MnemonicFinder{
         }
 
         var word = word.toLowerCase();
-        var best_solution = [word.length, []]
-        var best_score = this.score(best_solution)
+        var best_solution =[ [word.length, []] ]
+        var best_score = this.score(best_solution[0])
 
         for(var i=word.length; i>0; i--){
             var p = word.slice(0, i)
@@ -71,13 +79,16 @@ class MnemonicFinder{
             var new_solution = [match[0] + sub[0], match[1].concat(sub[1])]
             var new_score = this.score(new_solution) 
             if(new_score < best_score){
-                best_solution = new_solution
+                best_solution = [new_solution]
                 best_score = new_score
+            }
+            if(new_score == best_score){
+                best_solution.push(new_solution)
             }
         }
         
         this.cache[key] = best_solution
-        return this.cache[key]
+        return select_at_random(this.cache[key])
     }
 
     find(word, max_depth=6){
@@ -89,7 +100,7 @@ class MnemonicFinder{
 
         var result = []
         for(var p of match[1]){
-            result.push([p, this.prefixes[p]])
+            result.push([p, select_at_random(this.prefixes[p])])
         }
         return {'mnemonic': result, 'error': match[0]}
     }
